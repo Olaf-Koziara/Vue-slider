@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <h1>Pokaz zdjeć</h1>
+
+      <slideshow :images="images" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import Slideshow from "./components/Slideshow";
 export default {
   name: 'App',
+  data(){
+    return{
+      images:[
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-1.jpg"
+                    },
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-2.jpg"
+                    },
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-3.jpg"
+                    }
+      
+      ],
+
+    }
+  },
   components: {
-    HelloWorld
+    Slideshow
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
