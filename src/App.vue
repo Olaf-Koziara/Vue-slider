@@ -7,31 +7,29 @@
 </template>
 
 <script>
-
+import axios from "axios";
 import Slideshow from "./components/Slideshow";
 export default {
   name: 'App',
+  props:{
+    endpoint:String
+  },
   data(){
     return{
-      images:[
-                    {
-                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-1.jpg"
-                    },
-                    {
-                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-2.jpg"
-                    },
-                    {
-                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-3.jpg"
-                    }
-      
-      ],
+      images:[],
 
     }
   },
   components: {
     Slideshow
-  }
+  },
+  created()
+  {
+    axios.get(this.endpoint)
+        .then(res => this.images=res.data);
+  } 
 }
+
 </script>
 
 <style>
