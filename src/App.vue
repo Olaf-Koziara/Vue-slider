@@ -2,13 +2,13 @@
   <div id="app">
       <h1>Pokaz zdjeć</h1>
 
-      <slideshow :images="images" />
+      <router-view :images="images" ></router-view>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Slideshow from "./components/Slideshow";
+
 export default {
   name: 'App',
   props:{
@@ -21,7 +21,7 @@ export default {
     }
   },
   components: {
-    Slideshow
+    
   },
   created()
   {
