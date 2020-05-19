@@ -52,7 +52,8 @@ export default {
                 preloadImage(slide.url)
                     .then( 
                         this.active=index,
-                        this.isLoading=false
+                        this.isLoading=false,
+                        this.$router.push(`/slide/${index+1}`)
                         
                     )
             }
@@ -60,6 +61,13 @@ export default {
     },
     components:{
         Slide
+    },
+    watch:{
+        $route(){
+            
+            this.changeSlide(this.$route.params.index-this.active-1)
+        },
+        
     }
     
 }
